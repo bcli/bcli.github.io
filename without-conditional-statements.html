@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+	<meta charset="utf-8">
+	<title>Without Conditional Statements — ##BCLisLearningCS</title>
+	<meta name="description" content="Title: Without Conditional Statements; Date: 2015-08-12; Author: BCLi">
+	<meta name="author" content="BCLi">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+		<![endif]-->
+	<link href="/theme/css/ipython.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/simplex/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/css/local.css" rel="stylesheet">
+	<link href="/theme/css/pygments.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+	<div class="page-header">
+		<h1><a href="/">##BCLisLearningCS</a>
+			<br>	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="text-center article-header">
+		<h1 itemprop="name headline" class="article-title">Without Conditional Statements</h1>
+		<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+			<h4 itemprop="name">BCLi</h4>
+		</span>
+		<time datetime="2015-08-12T00:00:00+08:00" itemprop="datePublished">2015年08月12日 星期三</time>
+	</div>
+	<div>
+		Category:
+		<span itemprop="articleSection">
+			<a href="/category/mit6001x.html" rel="category">mit6001x</a>
+		</span>
+	</div>
+ 
+	<div>
+		Tags:
+		<span itemprop="keywords">
+			<a href="/tag/python.html" rel="tag">python</a>
+		</span>
+	</div>
+	<div itemprop="articleBody" class="article-body"><div class="highlight"><pre><span class="nx">L4</span> <span class="nx">PROBLEM</span> <span class="mi">5</span>
+<span class="nx">Write</span> <span class="nx">a</span> <span class="nx">Python</span> <span class="kd">function</span><span class="p">,</span> <span class="nx">clip</span><span class="p">(</span><span class="nx">lo</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">hi</span><span class="p">)</span> <span class="nx">that</span> <span class="nx">returns</span> <span class="nx">lo</span> <span class="k">if</span> <span class="nx">x</span> <span class="nx">is</span> <span class="nx">less</span> <span class="nx">than</span> <span class="nx">lo</span><span class="p">;</span> <span class="nx">hi</span> <span class="k">if</span> <span class="nx">x</span> <span class="nx">is</span> <span class="nx">greater</span> <span class="nx">than</span> <span class="nx">hi</span><span class="p">;</span> <span class="nx">and</span> <span class="nx">x</span> <span class="nx">otherwise</span><span class="p">.</span> <span class="nx">For</span> <span class="k">this</span> <span class="nx">problem</span><span class="p">,</span> <span class="nx">you</span> <span class="nx">can</span> <span class="nx">assume</span> <span class="nx">that</span> <span class="nx">lo</span> <span class="o">&lt;</span> <span class="nx">hi</span><span class="p">.</span>
+
+<span class="nx">Don</span><span class="err">&#39;</span><span class="nx">t</span> <span class="nx">use</span> <span class="nx">any</span> <span class="nx">conditional</span> <span class="nx">statements</span> <span class="k">for</span> <span class="k">this</span> <span class="nx">problem</span><span class="p">.</span> <span class="nx">Instead</span><span class="p">,</span> <span class="nx">use</span> <span class="nx">the</span> <span class="nx">built</span> <span class="k">in</span> <span class="nx">Python</span> <span class="nx">functions</span> <span class="nx">min</span> <span class="nx">and</span> <span class="nx">max</span><span class="p">.</span> <span class="nx">You</span> <span class="nx">may</span> <span class="nx">wish</span> <span class="nx">to</span> <span class="nx">read</span> <span class="nx">the</span> <span class="nx">documentation</span> <span class="nx">on</span> <span class="nx">min</span> <span class="nx">and</span> <span class="nx">the</span> <span class="nx">documentation</span> <span class="nx">on</span> <span class="nx">max</span><span class="p">,</span> <span class="nx">and</span> <span class="nx">play</span> <span class="nx">around</span> <span class="kd">with</span> <span class="nx">these</span> <span class="nx">functions</span> <span class="nx">a</span> <span class="nx">bit</span> <span class="k">in</span> <span class="nx">your</span> <span class="nx">interpreter</span><span class="p">,</span> <span class="nx">before</span> <span class="nx">beginning</span> <span class="k">this</span> <span class="nx">problem</span><span class="p">.</span>
+
+<span class="nx">This</span> <span class="kd">function</span> <span class="nx">takes</span> <span class="k">in</span> <span class="nx">three</span> <span class="nx">numbers</span> <span class="nx">and</span> <span class="nx">returns</span> <span class="nx">a</span> <span class="nx">single</span> <span class="nx">number</span><span class="p">.</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">clip</span><span class="p">(</span><span class="n">lo</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">hi</span><span class="p">):</span>
+    <span class="n">low</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">lo</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">high</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">hi</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">high</span>
+</pre></div>
+
+
+<p>智商不够用。。跑到edx看了讨论才写出来囧rz~</p></div>
+	<hr>
+	<h2>Comments</h2>
+</div>
+		</div>
+	</div> 	<!-- <hr> -->
+</div> <!-- /container -->
+<footer class="aw-footer bg-danger">
+	<div class="container"> <!-- footer -->
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="row">
+					<div class="col-md-3">
+						<h4>Navigation</h4>
+						<ul class="list-unstyled my-list-style">
+							<li><a href="">##BCLisLearningCS</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<h4>Author</h4>
+						<ul class="list-unstyled my-list-style">
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<h4>Categories</h4>
+						<ul class="list-unstyled my-list-style">
+							<li><a href="/category/leetcode.html">leetcode (1)</a></li>
+							<li><a href="/category/mit6001x.html">mit6001x (5)</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center center-block aw-bottom">
+			<p>&copy; BCLi 2014</p>
+			<p>Powered by Pelican</p>
+		</div>
+	</div>
+</div>
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	$("div.collapseheader").click(function () {
+		$header = $(this).children("span").first();
+		$codearea = $(this).children(".input_area");
+		$codearea.slideToggle(500, function () {
+			$header.text(function () {
+				return $codearea.is(":visible") ? "Collapse Code" : "Expand Code";
+			});
+		});
+	});
+});
+</script>
+</body>
+</html>

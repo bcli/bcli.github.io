@@ -2,8 +2,8 @@
 <html lang="ch">
 <head>
 	<meta charset="utf-8">
-	<title>Majority Element — ##BCLisLearningCS</title>
-	<meta name="description" content="Title: Majority Element; Date: 2015-08-10; Author: BCLi">
+	<title>Counting bobs — ##BCLisLearningCS</title>
+	<meta name="description" content="Title: Counting bobs; Date: 2015-08-12; Author: BCLi">
 	<meta name="author" content="BCLi">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -26,35 +26,44 @@
 		<div class="col-md-8 col-md-offset-2">
 <div class="article" itemscope itemtype="http://schema.org/BlogPosting">
 	<div class="text-center article-header">
-		<h1 itemprop="name headline" class="article-title">Majority Element</h1>
+		<h1 itemprop="name headline" class="article-title">Counting bobs</h1>
 		<span itemprop="author" itemscope itemtype="http://schema.org/Person">
 			<h4 itemprop="name">BCLi</h4>
 		</span>
-		<time datetime="2015-08-10T00:00:00+08:00" itemprop="datePublished">2015年08月10日 星期一</time>
+		<time datetime="2015-08-12T00:00:00+08:00" itemprop="datePublished">2015年08月12日 星期三</time>
 	</div>
 	<div>
 		Category:
 		<span itemprop="articleSection">
-			<a href="/category/leetcode.html" rel="category">leetcode</a>
+			<a href="/category/mit6001x.html" rel="category">mit6001x</a>
 		</span>
 	</div>
  
 	<div>
 		Tags:
 		<span itemprop="keywords">
-			<a href="/tag/algorithm.html" rel="tag">algorithm</a>
-		</span>
-		<span itemprop="keywords">
 			<a href="/tag/python.html" rel="tag">python</a>
 		</span>
 	</div>
-	<div itemprop="articleBody" class="article-body"><blockquote>
-<p>Majority Element</p>
-<p>Given an array of size n, find the majority element. The majority element is the element that appears more than [ n/2 ] times.</p>
-<p>You may assume that the array is non-empty and the majority element always exist in the array.</p>
-<p>Credits:
-Special thanks to @ts for adding this problem and creating all test cases.</p>
-</blockquote></div>
+	<div itemprop="articleBody" class="article-body"><div class="highlight"><pre>COUNTING BOBS
+
+Assume s is a string of lower case characters.
+
+Write a program that prints the number of times the string &#39;bob&#39; occurs in s. For example, if s = &#39;azcbobobegghakl&#39;, then your program should print
+
+Number of times bob occurs is: 2
+
+For problems such as these, do not include raw_input statements or define the variable s in any way. Our automated testing will provide a value of s for you - so the code you submit in the following box should assume s is already defined. If you are confused by this instruction, please review L4 Problems 10 and 11 before you begin this problem set.
+</pre></div>
+
+
+<p>我的答案：</p>
+<div class="highlight"><pre><span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="s">&#39;bob&#39;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+    <span class="n">num</span> <span class="o">+=</span> <span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">&#39;bob&#39;</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;bob&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;Number of times bob occurs is: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</pre></div></div>
 	<hr>
 	<h2>Comments</h2>
 </div>
