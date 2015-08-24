@@ -27,8 +27,55 @@
         
         
 <div class="article" itemscope itemtype="http://schema.org/BlogPosting">
-	<a href="/leetcodemajority-element.html">
-		<h2 itemprop="name headline">[LeetCode]Majority Element</h2>
+	<a href="/tbs-li-yong-qiong-ju-fa-qiu-ping-fang-gen.html">
+		<h2 itemprop="name headline">[TBS] 利用穷举法求平方根</h2>
+	</a>
+	<time datetime="2015-08-11T00:00:00+08:00" itemprop="datePublished">2015年08月11日 星期二</time>
+	&nbsp;—&nbsp;
+	<span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+		<span itemprop="name">BCLi</span>
+	</span>
+	<div class="summary"><blockquote>
+<p>L3 PROBLEM 8</p>
+</blockquote>
+<p>Consider the following code:</p>
+<div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">step</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">guess</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">while</span> <span class="n">guess</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">guess</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">guess</span> <span class="o">+=</span> <span class="n">step</span>
+
+<span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">guess</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">epsilon</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;failed&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;succeeded: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">guess</span><span class="p">)</span>
+</pre></div>
+
+
+<p>If this code is executed, it ...</p></div>
+	Category:
+	<span itemprop="articleSection">
+		<a href="/category/mit6001x.html" rel="category">mit6001x</a>
+	</span>
+	Tags:
+ 
+	<span itemprop="keywords">
+		<a href="/tag/python.html" rel="tag">python</a>
+	</span>
+	<span itemprop="keywords">
+		<a href="/tag/algorithm.html" rel="tag">algorithm</a>
+	</span>
+</div>
+<hr>
+        
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+	<a href="/majority-element.html">
+		<h2 itemprop="name headline">Majority Element</h2>
 	</a>
 	<time datetime="2015-08-10T00:00:00+08:00" itemprop="datePublished">2015年08月10日 星期一</time>
 	&nbsp;—&nbsp;
@@ -57,8 +104,8 @@ Special thanks to @ts for adding this ...</p></blockquote></div>
 <hr>
         
 <div class="article" itemscope itemtype="http://schema.org/BlogPosting">
-	<a href="/pythonjin-zhi-zhuan-huan.html">
-		<h2 itemprop="name headline">[Python]进制转换</h2>
+	<a href="/jin-zhi-zhuan-huan.html">
+		<h2 itemprop="name headline">进制转换</h2>
 	</a>
 	<time datetime="2015-08-09T00:00:00+08:00" itemprop="datePublished">2015年08月09日 星期日</time>
 	&nbsp;—&nbsp;
@@ -132,7 +179,7 @@ Special thanks to @ts for adding this ...</p></blockquote></div>
 						<h4>Categories</h4>
 						<ul class="list-unstyled my-list-style">
 							<li><a href="/category/leetcode.html">leetcode (1)</a></li>
-							<li><a href="/category/mit6001x.html">mit6001x (1)</a></li>
+							<li><a href="/category/mit6001x.html">mit6001x (2)</a></li>
 						</ul>
 					</div>
 				</div>

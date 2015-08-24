@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+	<meta charset="utf-8">
+	<title>[TBS] 利用穷举法求平方根 — ##BCLisLearningCS</title>
+	<meta name="description" content="Title: [TBS] 利用穷举法求平方根; Date: 2015-08-11; Author: BCLi">
+	<meta name="author" content="BCLi">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+		<![endif]-->
+	<link href="/theme/css/ipython.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/simplex/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/css/local.css" rel="stylesheet">
+	<link href="/theme/css/pygments.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+	<div class="page-header">
+		<h1><a href="/">##BCLisLearningCS</a>
+			<br>	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="text-center article-header">
+		<h1 itemprop="name headline" class="article-title">[TBS] 利用穷举法求平方根</h1>
+		<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+			<h4 itemprop="name">BCLi</h4>
+		</span>
+		<time datetime="2015-08-11T00:00:00+08:00" itemprop="datePublished">2015年08月11日 星期二</time>
+	</div>
+	<div>
+		Category:
+		<span itemprop="articleSection">
+			<a href="/category/mit6001x.html" rel="category">mit6001x</a>
+		</span>
+	</div>
+ 
+	<div>
+		Tags:
+		<span itemprop="keywords">
+			<a href="/tag/python.html" rel="tag">python</a>
+		</span>
+		<span itemprop="keywords">
+			<a href="/tag/algorithm.html" rel="tag">algorithm</a>
+		</span>
+	</div>
+	<div itemprop="articleBody" class="article-body"><blockquote>
+<p>L3 PROBLEM 8</p>
+</blockquote>
+<p>Consider the following code:</p>
+<div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">step</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">guess</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">while</span> <span class="n">guess</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">guess</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">guess</span> <span class="o">+=</span> <span class="n">step</span>
+
+<span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">guess</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">epsilon</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;failed&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;succeeded: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">guess</span><span class="p">)</span>
+</pre></div>
+
+
+<p>If this code is executed, it will print succeeded: 5.0</p>
+<p>Now suppose we try the following:</p>
+<div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">step</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">guess</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">while</span> <span class="n">guess</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">guess</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">epsilon</span><span class="p">:</span>
+        <span class="n">guess</span> <span class="o">+=</span> <span class="n">step</span>
+
+<span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">guess</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">epsilon</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;failed&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;succeeded: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">guess</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Select the answer that best describes what occurs when the above code is executed:</p>
+<div class="highlight"><pre>A. Script successfully completes, and prints out succeeded: 5.0
+B. Script successfully completes, but prints out failed  
+C. Script successfully completes, but prints out succeeded: followed by some number not equal to 5.0
+D. Script enters an infinite loop and never terminates
+</pre></div>
+
+
+<blockquote>
+<p>(D)</p>
+</blockquote>
+<p>Now suppose we try</p>
+<div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">step</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">guess</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">guess</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">epsilon</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">guess</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">:</span>
+        <span class="n">guess</span> <span class="o">+=</span> <span class="n">step</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">break</span>
+
+<span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">guess</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">epsilon</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;failed&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;succeeded: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">guess</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Select the answer that best describes what occurs when the above code is executed:</p>
+<div class="highlight"><pre>A. Script successfully completes, and prints out succeeded: 5.0
+B. Script successfully completes, but prints out failed
+C. Script successfully completes, but prints out succeeded: followed by some number not equal to 5.0
+D. Script enters an infinite loop and never terminates
+</pre></div>
+
+
+<blockquote>
+<p>A</p>
+</blockquote>
+<p>Finally, let's use the same code as immediately above, but change the first line to x = 23. Note that the square root of 23 is roughly 4.7958.</p>
+<p>Select the answer that best describes what occurs when the modified code is executed:</p>
+<div class="highlight"><pre>A. Script successfully completes, and prints out succeeded: 5.0
+B. Script successfully completes, but prints out failed
+C. Script successfully completes, but prints out succeeded: followed by some number not equal to 5.0
+D. Script enters an infinite loop and never terminates
+</pre></div>
+
+
+<blockquote>
+<p>B</p>
+</blockquote>
+<p>我的疑问：</p>
+<ul>
+<li>这几段代码中 <code>if guess &lt;= x</code> 的作用是什么？</li>
+<li>这几道题的答案为什么会是这样的？</li>
+</ul></div>
+	<hr>
+	<h2>Comments</h2>
+</div>
+		</div>
+	</div> 	<!-- <hr> -->
+</div> <!-- /container -->
+<footer class="aw-footer bg-danger">
+	<div class="container"> <!-- footer -->
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="row">
+					<div class="col-md-3">
+						<h4>Navigation</h4>
+						<ul class="list-unstyled my-list-style">
+							<li><a href="">##BCLisLearningCS</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<h4>Author</h4>
+						<ul class="list-unstyled my-list-style">
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<h4>Categories</h4>
+						<ul class="list-unstyled my-list-style">
+							<li><a href="/category/leetcode.html">leetcode (1)</a></li>
+							<li><a href="/category/mit6001x.html">mit6001x (2)</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center center-block aw-bottom">
+			<p>&copy; BCLi 2014</p>
+			<p>Powered by Pelican</p>
+		</div>
+	</div>
+</div>
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	$("div.collapseheader").click(function () {
+		$header = $(this).children("span").first();
+		$codearea = $(this).children(".input_area");
+		$codearea.slideToggle(500, function () {
+			$header.text(function () {
+				return $codearea.is(":visible") ? "Collapse Code" : "Expand Code";
+			});
+		});
+	});
+});
+</script>
+</body>
+</html>
