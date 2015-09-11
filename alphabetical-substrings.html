@@ -63,6 +63,24 @@ Longest substring in alphabetical order is: abc
 For problems such as these, do not include raw_input statements or define the variable s in any way. Our automated testing will provide a value of s for you - so the code you submit in the following box should assume s is already defined. If you are confused by this instruction, please review L4 Problems 10 and 11 before you begin this problem set.
 
 Note: This problem is fairly challenging. We encourage you to work smart. If you&#39;ve spent more than a few hours on this problem, we suggest that you move on to a different part of the course. If you have time, come back to this problem after you&#39;ve had a break and cleared your head.
+</pre></div>
+
+
+<p>My answer:</p>
+<div class="highlight"><pre><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">begin</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">end</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">ans</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">begin</span><span class="p">:</span><span class="n">end</span><span class="p">])</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">ans</span><span class="p">):</span>
+            <span class="n">ans</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">begin</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>
+        <span class="n">begin</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">begin</span><span class="p">:])</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">ans</span><span class="p">):</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">begin</span><span class="p">:]</span>
+<span class="k">print</span> <span class="n">ans</span>
 </pre></div></div>
 	<hr>
 	<h2>Comments</h2>
